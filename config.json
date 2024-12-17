@@ -1,0 +1,5 @@
+{
+    "video_path": "path/to/video.mp4",
+    "reference_image_path": "path/to/reference_image.jpg",
+    "generated_video_fps": 30
+}
