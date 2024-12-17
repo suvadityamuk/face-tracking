@@ -3,7 +3,7 @@
 ## Introduction
 This specific task perform face-tracking for a given individual in an available video. This is useful for generating face-snippets for a given person as part of a larger video which may involve changes in scenes etc. as well
 
-## Set-up Instructions
+## Setup Instructions
 
 Follow the steps below to run the script on your machine.
 
