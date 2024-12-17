@@ -101,6 +101,7 @@ We finally complete the full iteration of the frames and save the last available
 - The face-recognition mechanism is difficult to fine-tune as the L1 threshold (instead of L2 to allow for a better decision boundary) has significantly high variance and can misclassify the target face at times.
 - The model and my approach is optimized for a lightweight deployment, preferring speed of execution/inference over quality. I have optimized the entire pipeline to upto 20 frames per second, which I believe can be made better through smarter choices for decision boundaries and/or a finetuned model like a YOLO.
 - The current system seems to heavily rely on the qualitative characteristics of the reference image and has no baseline reference to accept/reject a frame. For example, Ryan Reynolds with glasses is exponentially more accurate than Ryan Reynolds without his glasses.
+- Audio has not been preserved in these clips as the jump in frames led to the audio changes being quite jarring.
 
 ## Observations
 - Generating embeddings and finding the Euclidean Distance between the reference image and the candidate image does not always guarantee a face match.
