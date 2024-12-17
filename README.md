@@ -107,6 +107,7 @@ We finally complete the full iteration of the frames and save the last available
 - Using MediaPipe can yield exponentially better performance in terms of speed, but has a significantly lower detection quality for medium-long range distances, thus rendering it ineffective in our case.
 - I made attempts to use the descriptors from the SIFT process and send it into a FLANN KNN-based matcher. But it would not work well without fine-tuning of a decision boundary.
 - There is still not a strong logic for how we can have the model be confident that the reference-image and candidate-frame match when there is only one face in the frame, except for deciding arbitrary bounds that do not scale with the number of videos processed.
+- If compute was not a significant barrier, then the use of models like OWLv2 or OWLViT could simplify this process.
 
 ## Example results
 
