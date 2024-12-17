@@ -90,8 +90,6 @@ We record all numerical information like bounding box characteristics, and save 
 ### Step 8
 We finally complete the full iteration of the frames and save the last available frames into a video along with a metadata file.
 
-## Samples
-
 ## Assumptions
 - We use mostly free-tier hardware (Colab T4 GPUs and L4 GPUs) to run all scratch experiments and write the code.
 - The current solution is light-weight in nature and uses optimized small Deep Learning models as they tend to be heavier at inference-time.
