@@ -19,7 +19,7 @@ Follow the steps below to run the script on your machine.
 
 ### Setup & Download
 First, clone the repository onto the machine of your choice.
-```
+```bash
 git clone https://github.com/suvadityamuk/face-tracking.git
 ```
 
@@ -33,25 +33,25 @@ If using VS Code, clone the repository and open it. Then, use the [DevContainers
 #### General
 If using a terminal, use Docker to create a new container based on the Dockerfile available in the repository.
 
-```
+```bash
 docker build -t face-tracking .
 docker run -it --rm face-tracking bash
 ```
 Open a new terminal side-by-side. Make use of `docker cp` to move your video and image files into the container. To do so:
 
 1. Find your container ID using `docker ps`
-```
+```bash
 CONTAINER ID           IMAGE                   COMMAND     CREATED     STATUS      PORTS       NAMES
 <your-container-id>    <random-image-name>     ...         ...         ...         ...         ...
 ```
 2. Use docker cp to move files from your host to your container. Alternatively, mount a host volume to the container to simplify this process.
-```
+```bash
 docker cp /path/to/video.mp4 <your-container-id>:/some/other/location/
 docker cp /path/to/image.jpg <your-container-id>:/some/other/location/
 ```
 3. Update the `config.json` inside your container to reflect the path of the video and image inside the container
 4. Run the script to generate the clips and metadata.
-```
+```bash
 python app.py
 ```
 
