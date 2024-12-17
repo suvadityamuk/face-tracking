@@ -92,22 +92,22 @@ We finally complete the full iteration of the frames and save the last available
 
 ## Assumptions
 - We use mostly free-tier hardware (Colab T4 GPUs and L4 GPUs) to run all scratch experiments and write the code.
-- The current solution is light-weight in nature and uses optimized small Deep Learning models as they tend to be heavier at inference-time.
-- The GPU use of this current script is minimal (especially since the solution is heavily Computer-Vision oriented), but it can be used through the SIFT Similarity approach too.
+- The current solution is light-weight in nature and uses optimized small Deep Learning models as they tend to be faster at inference-time.
+- The GPU use of this current script is minimal (especially since the solution is heavily Computer-Vision oriented), but it can be used through the SIFT Similarity approach too for a complete CPU-only process.
 
 ## Limitations
 - The face-recognition mechanism is difficult to fine-tune as the L1 threshold (instead of L2 to allow for a better decision boundary) has significantly high variance and can misclassify the target face at times.
-- The model and my approach is optimized for a lightweight deployment, preferring speed of execution/inference over quality. I have optimized the entire pipeline to upto 20 frames per second, which I believe can be made better through smarter choices for decision boundaries and/or a finetuned model like a YOLO.
-- The current system seems to heavily rely on the qualitative characteristics of the reference image and has no baseline reference to accept/reject a frame. For example, Ryan Reynolds with glasses is exponentially more accurate than Ryan Reynolds without his glasses.
+- The model and my approach is optimized for a lightweight deployment, preferring speed of execution/inference over quality. I have optimized the entire pipeline to upto 20 frames per second, which I believe can be made better through smarter choices for decision boundaries and/or a finetuned model like a YOLO given more images for the target face.
+- The current system seems to heavily rely on the qualitative characteristics of the reference image and has no baseline reference to accept/reject a frame. For example, Ryan Reynolds with glasses is exponentially more accurate to capture than Ryan Reynolds without his glasses.
 - Audio has not been preserved in these clips as the jump in frames led to the audio changes being quite jarring.
 
 ## Observations
 - Generating embeddings and finding the Euclidean Distance between the reference image and the candidate image does not always guarantee a face match.
 - On the other hand, the traditional template-matching method almost guarantees a match except for the case of look-alikes/twins in the video wherein the selection becomes random.
-- Using MediaPipe can yield exponentially better performance in terms of speed, but has a significantly lower detection quality for medium-long range distances, thus rendering it ineffective.
+- Using MediaPipe can yield exponentially better performance in terms of speed, but has a significantly lower detection quality for medium-long range distances, thus rendering it ineffective in our case.
 - I made attempts to use the descriptors from the SIFT process and send it into a FLANN KNN-based matcher. But it would not work well without fine-tuning of a decision boundary.
-- There is still not a strong logic for how we can have the model be confident that the reference-image and candidate-frame match when there is only one face in the frame except for arbitrary bounds that do not scale with the number of videos processed.
+- There is still not a strong logic for how we can have the model be confident that the reference-image and candidate-frame match when there is only one face in the frame, except for deciding arbitrary bounds that do not scale with the number of videos processed.
 
-## Example scripts to get results
+## Example results
 
 Please navigate to the [`Media`](./media) section to find sample clips and metadata.
